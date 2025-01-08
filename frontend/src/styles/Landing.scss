@@ -1,0 +1,1237 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+
+/* 랜딩 페이지 스타일링 */
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  font-family: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+body {
+  font-size: 12px;
+  line-height: 18px;
+  font-family: "Noto Sans KR", sans-serif;
+}
+a {
+  color: #121212;
+  text-decoration: none;
+}
+img {
+  border: none;
+  vertical-align: top;
+}
+ul,
+ol {
+  list-style: none;
+}
+address {
+  font-style: normal;
+}
+.cf {
+}
+.cf:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+#wrap {
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+}
+
+/* 헤더 */
+#header {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+}
+
+/* 헤더 inner */
+.headerIn {
+  width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: #ddd; */
+}
+
+/* 로고 */
+.headerIn .logo {
+  width: 200px;
+  height: 45px;
+}
+
+.headerIn .logo a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+/* 네비게이션 */
+.headerIn .gnb {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.headerIn .gnb ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 2rem;
+}
+
+.headerIn .gnb ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.headerIn .gnb ul li a img {
+  width: 20px;
+  height: 20px;
+}
+
+/* 버튼 컨테이너 */
+.headerIn .gnb .headerBtn {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* 버튼 스타일 */
+.headerBtn a {
+  padding: 0px 16px;
+  box-sizing: border-box;
+  line-height: 32px;
+  width: 84px;
+  height: 32px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: 500;
+  text-align: center;
+  font-size: 13px;
+}
+
+.headerBtn .login {
+  background: white;
+  color: black;
+  border: 1px solid black;
+}
+
+.headerBtn .register {
+  background: black;
+  color: white;
+  border: 1px solid black;
+}
+
+/* 호버 효과 */
+.headerBtn .login:hover {
+  background: #f5f5f5;
+}
+
+.headerBtn .register:hover {
+  background: #333;
+}
+
+.gnb {
+}
+.gnb ul {
+}
+.gnb ul li {
+}
+.gnb ul li a {
+  font-size: 13px;
+}
+.gnb ul li a span {
+  box-sizing: border-box;
+  border-top: 1px solid #000;
+  border-right: 1px solid #000;
+  transform: rotate(45deg);
+}
+
+/* mainSlider  */
+/* #mainSlider {
+  width: 1200px;
+  margin: 0 auto;
+  /* background: url("../images/main_img\(1920x815\).jpg"); */
+/* } */
+
+#mainSlider {
+}
+
+#mainSlider .slider {
+  width: 100%;
+  height: 815px;
+  background: url("/images/main_img\(1920x815\).jpg") center no-repeat;
+  background-size: cover; /* 또는 100% */
+}
+
+#mainSlider .slider {
+  width: 100%;
+  height: 815px;
+}
+
+#mainSlider .slider img {
+  width: 100%;
+  height: 815px;
+  object-fit: cover; /* 이미지 비율 유지하면서 영역 채우기 */
+}
+
+#mainSlider .text {
+  width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* 타이틀/설명글 공통 */
+#mainSlider .text p {
+  position: absolute;
+  left: 0;
+}
+
+/* 타이틀 : 일개미가 되다. */
+#mainSlider .text .tit {
+  top: -650px;
+  font-size: 80px;
+  font-weight: 900;
+  letter-spacing: -0.75px;
+}
+
+#mainSlider .text .des {
+  top: -574px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.75px;
+  line-height: 27px;
+}
+/* 더보기  */
+#mainSlider .text .more {
+  top: -440px;
+}
+
+#mainSlider .text .more a {
+  display: block;
+  padding-left: 30px;
+  line-height: 44px;
+  color: #fff;
+  width: 200px;
+  height: 44px;
+  background-color: #0f62fe;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+#mainSlider .text .more a {
+  display: block;
+  padding-left: 30px;
+  line-height: 44px;
+  color: #fff;
+  width: 200px;
+  height: 44px;
+  background-color: #0f62fe;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 500;
+}
+#mainSlider .text .more a i {
+  display: block;
+  width: 10px;
+  height: 1px;
+  /* background-color: #fff; */
+}
+#mainSlider .text .more a i span {
+  display: block;
+  width: 5px;
+  height: 1px;
+  background-color: #fff;
+  transform: rotate(180deg);
+}
+
+/*다른영상보기 ////////////////////////////////////////////////////*/
+#mainSlider .text .more {
+  position: relative;
+}
+#mainSlider .text .more a {
+  display: block;
+  width: 130px;
+  height: 46px;
+  margin-top: 48px;
+  font-size: 14px;
+  line-height: 46px;
+  /* border: 1px solid #444; */
+  border-radius: 45px;
+  padding-left: 18px;
+  transition: all 0.3s;
+} /*113x46*/
+#mainSlider .text .more:hover a {
+  width: 160px;
+  /* border: 1px solid #fff; */
+  color: #fff;
+} /*145x46*/
+/*버튼 ㅡ*/
+#mainSlider .text .more span {
+  position: absolute;
+  top: 26px;
+  left: 109px;
+  display: inline-block;
+  width: 0;
+  height: 1px;
+  /* background: #222; */
+  transition: all 0.3s;
+}
+#mainSlider .text .more:hover span {
+  width: 23px;
+  background: #fff;
+}
+/*버튼 /*/
+#mainSlider .text .more i {
+  position: absolute;
+  top: 22px;
+  left: 109px;
+  display: inline-block; /*width:7px; height:7px;*/
+  transform: rotate(45deg);
+  transition: all 0.3s;
+  /* border-top: 1px solid #222; */
+}
+#mainSlider .text .more:hover i {
+  left: 123px;
+  width: 7px;
+  height: 7px;
+  border-top: 1px solid #fff;
+}
+/*다른영상보기 ////////////////////////////////////////////////////*/
+
+/* #mainSlider end ----------------------------------------------------------------------------------  */
+
+/* container  */
+#container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.cont1 {
+  margin-bottom: 70px;
+}
+
+/* footer start ----------------------------------------------------------------------------------  */
+#footer {
+}
+
+.footerIn {
+  width: 1200px; /* 고정 폭 설정 */
+  height: 100%; /* 부모 높이와 동일하게 설정 */
+  margin: 0 auto; /* 가로 중앙 정렬 */
+  display: flex; /* 내부 요소 정렬을 위한 Flexbox 추가 */
+}
+
+.finfo,
+.fmenu {
+  margin-left: 180px;
+  width: 100%;
+  display: flex;
+  gap: 40px;
+}
+
+.flogo img {
+  max-width: 200px; /* 로고 크기 제한 */
+  height: auto; /* 비율 유지 */
+}
+
+.dep1-2 {
+  margin-right: 50px;
+}
+
+.right {
+  width: 300px;
+  height: auto;
+  justify-content: flex-end;
+}
+
+/* 랜딩 페이지 스타일링 끝 */
+/* 유저 페이지 스타일링 */
+/* 초기화 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+/* 바디 전체적 색감 디자인 */
+.member_body {
+  position: relative;
+  height: 100vh;
+  background: linear-gradient(135deg, #f5f5f5 50%, #e0e0e0 50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: hidden;
+
+  // 로그인
+  .wrapper {
+    width: 90%;
+    max-width: 1200px;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  /* 이미지, 로그인 박스 쌓고있는 div */
+  .content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+  }
+
+  /* 로그인 이미지 스타일링 */
+  .login_img {
+    width: 50%;
+    max-width: 500px;
+    height: auto;
+    margin-right: 20px;
+  }
+
+  /* 로그인 박스 디자인 */
+  .login-box {
+    width: 40%;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 40px 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Antwork */
+  .logo {
+    font-size: 32px;
+    font-weight: bold;
+    color: #1c1c1c;
+    margin-bottom: 15px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .welcome {
+    font-size: 18px;
+    font-weight: 300;
+    color: #4d4d4d;
+    margin-bottom: 25px;
+  }
+
+  .email,
+  .password {
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(200, 200, 200, 0.6);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent input */
+    font-size: 15px;
+    font-weight: 400;
+    color: #333333; /* Text color */
+    outline: none;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05); /* Inner shadow for depth */
+    transition: all 0.3s ease;
+  }
+
+  .email::placeholder,
+  .password::placeholder {
+    color: rgba(150, 150, 150, 0.8); /* Subtle placeholder text */
+  }
+
+  .email:focus,
+  .password:focus {
+    border-color: #5a9aff;
+    box-shadow: 0 4px 10px rgba(90, 154, 255, 0.3);
+  }
+  /* 로그인 폼 */
+  .login_form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .email_lbl,
+  .pass_lbl {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #666;
+    text-align: left;
+  }
+
+  /* sign in 버튼 스타일링 */
+  .btn {
+    padding: 12px 15px;
+    background: linear-gradient(90deg, #b2d1ff, #92bbf8);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn:hover {
+    background: linear-gradient(90deg, #b2d1ff, #3e82e7);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+  }
+
+  .btn:active {
+    transform: translateY(0px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .signup-text {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555555;
+  }
+
+  .signup-text a {
+    color: #b2d1ff;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .signup-text a:hover {
+    color: #b2d1ff;
+    text-decoration: underline;
+  }
+
+  .login-box::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    border-radius: 0 0 15px 15px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .content {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .login_img {
+      width: 80%;
+      margin-bottom: 20px;
+    }
+
+    .login-box {
+      width: 90%;
+    }
+  }
+
+  // 회원가입
+  .register_logoimg {
+    padding: 20px 0;
+  }
+  #register_img {
+    position: absolute;
+    width: 500px;
+    height: 400px;
+    right: 0;
+    bottom: 0;
+    z-index: 0; /* 이미지 뒤로 보내기 */
+  }
+  #container {
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+  }
+
+  main {
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+  }
+  #register_div {
+    width: 100%;
+    height: 92%;
+    margin: 0 auto;
+  }
+  .register_form {
+    height: 100vh;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+
+  .register_one {
+    margin: 80px auto;
+    width: 500px;
+    height: 700px;
+    display: flex;
+    flex-direction: column; /* 수직 정렬 */
+    justify-content: center; /* 수직 가운데 정렬 */
+    align-items: center; /* 수평 가운데 정렬 */
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: white;
+  }
+  .register_second {
+    margin: 200px auto;
+    height: auto;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    display: flex;
+    flex-direction: column; /* 수직 정렬 */
+    justify-content: center; /* 수직 가운데 정렬 */
+    align-items: center; /* 수평 가운데 정렬 */
+  }
+
+  .register_logo {
+    font-size: 18px;
+    font-weight: 300;
+    color: #4d4d4d;
+    margin-bottom: 25px;
+  }
+  .register_title {
+    font-size: 40px;
+    font-weight: bold;
+    color: #1c1c1c;
+    margin-bottom: 15px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .register_name,
+  .register_pass,
+  .register_pass2,
+  .register_nick,
+  .register_email,
+  .register_emailcode,
+  .register_hp,
+  .register_postcode,
+  .register_addr1,
+  .register_addr2,
+  .register_company {
+    border: 1px solid rgba(200, 200, 200, 0.6);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent input */
+    font-size: 15px;
+    font-weight: 400;
+    color: #333333; /* Text color */
+    outline: none;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05); /* Inner shadow for depth */
+    transition: all 0.3s ease;
+    width: 100%;
+    height: 40px;
+    padding-left: 10px;
+    margin-bottom: 23px;
+  }
+  .register_name:focus,
+  .register_pass:focus,
+  .register_pass2:focus,
+  .register_nick:focus,
+  .register_email:focus,
+  .register_emailcode:focus,
+  .register_hp:focus,
+  .register_postcode:focus,
+  .register_addr1:focus,
+  .register_addr2:focus,
+  .register_company:focus {
+    border-color: #5a9aff;
+    box-shadow: 0 4px 10px rgba(90, 154, 255, 0.3);
+  }
+
+  .register_name::placeholder,
+  .register_pass::placeholder,
+  .register_pass2::placeholder,
+  .register_nick::placeholder,
+  .register_email::placeholder,
+  .register_emailcode::placeholder,
+  .register_hp::placeholder,
+  .register_postcode::placeholder,
+  .register_addr1::placeholder,
+  .register_addr2::placeholder,
+  .register_company::placeholder {
+    border-color: #5a9aff;
+    box-shadow: 0 4px 10px rgba(90, 154, 255, 0.3);
+  }
+
+  .register_one,
+  .register_second {
+    padding: 40px;
+  }
+  .register_one p,
+  .register_second p {
+    padding-bottom: 5px;
+    text-align: left;
+  }
+  .register_one p,
+  .register_second p {
+    width: 100%;
+  }
+
+  .register_postcode,
+  .register_addr1,
+  .register_addr2 {
+    margin-bottom: 10px;
+  }
+  .register_hp,
+  .register_company,
+  .register_addr2 {
+    margin-bottom: 20px;
+  }
+
+  .register_btn {
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .register_sign,
+  .register_prev {
+    width: 160px;
+    margin-top: 30px;
+    padding: 12px 15px;
+    background: linear-gradient(90deg, #b2d1ff, #92bbf8);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  .register_sign:hover,
+  .register_prev:hover {
+    background: linear-gradient(90deg, #b2d1ff, #3e82e7);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+  }
+
+  .register_sign:active {
+    transform: translateY(0px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  // 약관
+  .terms-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 150px;
+  }
+
+  #main {
+    position: relative;
+    display: flex;
+    width: auto;
+    height: auto;
+    gap: 150px;
+    margin: 0 auto;
+  }
+
+  #main > img {
+    position: absolute;
+    width: 200px;
+    z-index: 0;
+  }
+
+  #womanImg {
+    right: 490px;
+    bottom: 0;
+  }
+
+  #manImg {
+    left: 480px;
+    bottom: 0;
+  }
+
+  .info-box {
+    width: 500px;
+    height: 600px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 40px 30px;
+    z-index: 1;
+  }
+
+  .info-box .content {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 24px;
+  }
+
+  /* Header Section */
+  .header {
+    text-align: left;
+    margin-bottom: 20px;
+  }
+
+  .header h1 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333333;
+    margin-bottom: 10px;
+    line-height: initial;
+  }
+
+  .header p {
+    font-size: 14px;
+    color: #555555;
+    line-height: 1.6;
+  }
+
+  /* Terms Content */
+  .terms-content {
+    margin-bottom: 20px;
+    padding: 15px;
+  }
+
+  .agreement-all {
+    display: flex;
+    padding: 8px 14px 8px 22px;
+    height: 48px;
+    align-items: center;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #eceef1;
+  }
+
+  .agreement-all input[type="checkbox"] {
+    margin-right: 10px;
+  }
+
+  .agreement-all label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333333;
+  }
+
+  .agreement-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 14px 8px 22px;
+    height: 48px;
+    border-radius: 5px;
+  }
+
+  .agreement-item:hover {
+    background-color: #eceef1;
+  }
+
+  .agreement-item input[type="checkbox"] {
+    margin-right: 10px;
+  }
+
+  .agreement-item label {
+    font-size: 14px;
+    color: #333333;
+  }
+
+  .detail-btn {
+    background: none;
+    border: none;
+    font-size: 14px;
+    color: #92bbf8;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-left: auto; /* 버튼을 오른쪽 끝으로 밀어냄 */
+  }
+
+  .detail-btn:hover {
+    text-decoration: none;
+  }
+
+  /* Footer Section */
+  .footer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .back-btn,
+  .next-btn {
+    padding: 8px;
+    width: 48%;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .next-btn {
+    background: linear-gradient(90deg, #b2d1ff, #92bbf8);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .back-btn:hover {
+    background: #e0e0e0;
+  }
+
+  .next-btn:hover {
+    background: #0056b3;
+  }
+
+  .em {
+    font-style: normal;
+    color: #1965f2;
+    font-weight: bold;
+  }
+
+  .modal {
+    display: flex;
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center;
+    position: fixed; /* 화면에 고정 */
+    z-index: 1; /* 다른 요소들 위에 표시 */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* 화면을 넘길 수 있도록 설정 */
+    background-color: rgba(0, 0, 0, 0.4); /* 반투명 배경 */
+  }
+
+  /* 모달 콘텐츠 스타일 */
+  .modal-content {
+    background-color: white;
+    margin: 90px 109px 0px 109px;
+    padding: 60px 40px 40px 40px;
+    border: 1px solid #888;
+    width: 620px;
+    height: 550px;
+    border-radius: 30px;
+    justify-items: center;
+  }
+
+  .modal-content > h2 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  #modal_main {
+    height: 270px; /* 고정 높이 */
+    overflow-y: auto; /* 스크롤 추가 */
+    padding: 10px 10px 10px 10px; /* 스크롤바와 텍스트 간 간격 */
+    border: 1px solid #eceef1;
+    border-radius: 10px;
+  }
+
+  /* 닫기 버튼 스타일 */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .modal_check {
+    width: 400px;
+    height: 50px;
+    background: linear-gradient(90deg, #b2d1ff, #92bbf8);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+  }
+}
+
+/* 요금 페이지 css */
+.pay-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  padding: 50px 0px;
+
+  .content-left {
+    margin-left: 0; /* Align the container to the left side */
+    padding: 40px 0px;
+    margin-right: 70px;
+  }
+
+  .title {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    justify-self: center;
+  }
+
+  .subtitle {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .plans {
+    position: relative;
+    display: flex; /* Arrange the plans in a row */
+    justify-content: center; /* Center the cards horizontally */
+    gap: 20px; /* Add spacing between cards */
+    margin: 40px auto; /* Add vertical margin */
+  }
+
+  .plan-card {
+    background-color: #fff; /* 카드 배경색 추가 */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .plan-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .plan-card h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .plan-card h3 {
+    font-size: 27px;
+    font-weight: 400;
+    color: #434141; /* Blue for price */
+    margin: 10px 0;
+  }
+
+  .plan-card p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+  }
+
+  /*  */
+  .plan-card.basic {
+    border: 2px solid #28a745; /* 초록색 테두리 */
+  }
+
+  .plan-card.basic h2 {
+    color: #28a745;
+  }
+
+  /* Professional Plan 색상 강조 */
+  .plan-card.professional {
+    border: 2px solid #007bff; /* 파란색 테두리 */
+  }
+
+  .plan-card.professional h2 {
+    color: #007bff;
+  }
+
+  /* Advanced Plan 색상 강조 */
+  .plan-card.advanced {
+    border: 2px solid #ffc107; /* 노란색 테두리 */
+  }
+
+  .plan-card.advanced h2 {
+    color: #ffc107;
+  }
+
+  /* 혜택 아이콘 */
+  .icon {
+    margin-right: 8px;
+    font-weight: bold;
+  }
+
+  .icon.check {
+    color: #28a745; /* 초록색 체크 */
+  }
+
+  .icon.cross {
+    color: #dc3545; /* 빨간색 금지 */
+  }
+  ul {
+    list-style: none; /* Remove default bullets */
+    padding: 0;
+    margin: 20px 0;
+  }
+
+  ul li {
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #333;
+    display: flex;
+    align-items: center; /* Align icons and text */
+    gap: 10px; /* Add space between icon and text */
+  }
+
+  ul .disabled {
+    color: red; /* Red text for unavailable features */
+    text-decoration: line-through; /* Strikethrough for emphasis */
+  }
+
+  ul .coming-soon {
+    color: #888; /* Gray text for "coming soon" */
+    font-style: italic; /* Italicize for distinction */
+  }
+
+  .plan-card.popular {
+    border: 2px solid #007bff; /* Highlight border for popular plan */
+    position: relative;
+  }
+
+  .plan-card.popular::before {
+    content: "Popular";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #007bff;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 20px;
+  }
+
+  .trial-button {
+    background-color: #f9d164; /* Yellow button background */
+    color: #333;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .trial-button:hover {
+    background-color: #e0ba50; /* Darker yellow on hover */
+  }
+
+  .no-credit {
+    font-size: 12px;
+    color: #555;
+    margin-top: 10px;
+  }
+
+  /* 단계 전환 애니메이션 */
+  .fade-enter {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  .fade-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 300ms, transform 300ms;
+  }
+  .fade-exit {
+    opacity: 1;
+  }
+  .fade-exit-active {
+    opacity: 0;
+    transition: opacity 300ms;
+  }
+
+  .footer {
+    margin-top: 200px;
+
+    .plan {
+      font-weight: bold;
+      font-size: 25px;
+    }
+    .payment-methods img {
+      margin-top: 10px;
+    }
+
+    .trial-container {
+      display: flex;
+      align-items: center; /* Vertically center items */
+      justify-content: space-between; /* Space between text and button */
+      padding: 10px 20px;
+      border: 2px solid #007bff; /* Blue border */
+      border-radius: 10px; /* Rounded corners */
+      background-color: #fff; /* White background */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visibility */
+      max-width: 700px; /* Optional: Adjust to fit the design */
+      margin: 20px auto; /* Center on the page */
+    }
+    .trial-text {
+      font-size: 14px;
+      color: #333;
+      margin-right: 30px;
+      line-height: 1.5;
+    }
+
+    .trial-button {
+      background-color: #f9d164; /* Light yellow background */
+      color: #333; /* Dark text */
+      border: none;
+      border-radius: 4px;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .trial-button:hover {
+      background-color: #e0ba50; /* Slightly darker yellow on hover */
+    }
+  }
+}

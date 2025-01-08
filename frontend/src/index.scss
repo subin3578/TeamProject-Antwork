@@ -1,0 +1,92 @@
+@use "tailwindcss/base";
+@use "tailwindcss/components";
+@use "tailwindcss/utilities";
+
+/*
+  작업자 : 황수빈
+  작업일 : 2024.12.04
+  내용 : page editor.jsx 스타일 추가
+*/
+.pageWrite {
+  #editorjs .ce-block__content,
+  #editorjs .ce-toolbar__content,
+  #editorjs .ce-inline-tool,
+  #editorjs .cdx-input,
+  #editorjs .cdx-block,
+  #editorjs .ce-paragraph,
+  #editorjs .ce-list,
+  #editorjs .ce-quote,
+  #editorjs .cdx-marker {
+    font-size: 15px !important;
+    line-height: 1.5; /* 가독성을 위해 추가 설정 */
+  }
+  .ce-code > textarea {
+    font-size: 12px !important;
+  }
+
+  // editor - text font
+  .ce-paragraph {
+    font-size: 15px;
+  }
+  // edtitor - text border
+  .ce-paragraph b {
+    font-size: 15px;
+  }
+  // editor - heading
+  h1 {
+    display: block;
+    font-size: 2em;
+
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+  }
+  h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+  }
+  h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+  }
+  h4 {
+    display: block;
+    font-size: 1em;
+    margin-block-start: 1.33em;
+    margin-block-end: 1.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+  }
+  .image-tool__caption {
+    display: none !important;
+  }
+  .cdx-list__item-content > span {
+    font-size: 14px;
+  }
+  .cdx-list__item-content {
+    font-size: 14px;
+  }
+
+  #editorjs {
+    .ce-toolbar__content {
+      max-width: 1200px !important;
+      width: 100% !important;
+    }
+
+    .ce-block__content {
+      max-width: 1200px !important;
+      width: 100% !important;
+    }
+  }
+}

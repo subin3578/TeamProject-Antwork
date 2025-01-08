@@ -1,0 +1,86 @@
+server:
+    port: 8080
+    address: 0.0.0.0
+    servlet:
+        session:
+            cookie:
+                same-site: None
+spring:
+    application:
+        name: BackAnt
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        password: 1234
+        url: jdbc:mysql://3.38.150.176:3306/antwork
+        username: root
+    jpa:
+        hibernate:
+            ddl-auto: update
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.MySQL8Dialect
+                format_sql: true
+        show-sql: true
+    servlet:
+        multipart:
+            max-file-size: 10MB
+    mail:
+        host: smtp.gmail.com
+        port: 587
+        username: loveu9911111@gmail.com
+        password: vclt brov xjod mybk
+        protocol: smtp
+        properties:
+            mail:
+                smtp:
+                    auth: true
+                    starttls:
+                        enable: true
+        default-encoding: UTF-8
+    profiles:
+      active: local # 기본 프로파일을 로컬로 설정
+    data:
+        mongodb:
+            uri: mongodb://antwork:1234@107.20.58.55:27017/antwork?authSource=antwork
+        redis:
+            host: 3.38.150.176
+            port: 6379
+            password: 'qwer1234!Q'
+    jackson:
+        serialization:
+            fail-on-empty-beans: false
+        default-property-inclusion: non_null
+    web:
+        resources:
+            static-locations: file:uploads/
+    graphql:
+        websocket:
+            path: /ws
+    kafka:
+        bootstrap-servers: 3.38.150.176:9092
+        consumer:
+            group-id: access-log-group
+            auto-offset-reset: earliest
+            key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+            value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+        producer:
+            key-serializer: org.apache.kafka.common.serialization.StringSerializer
+            value-serializer: org.apache.kafka.common.serialization.StringSerializer
+        properties:
+            session.timeout.ms: 30000
+            heartbeat.interval.ms: 10000
+            max.poll.interval.ms: 300000
+file:
+    upload:
+        path: uploads
+
+jwt:
+    issuer: loveu9911111@gmail.com
+    secret: Tz6W1F4Cl4Yl2GyyRjJ5C4v7KRMCA4z4
+
+# 프론트엔드 배포 URL
+frontend:
+    url: http://3.34.40.220
+logging:
+    level:
+        org.springframework.data.mongodb: DEBUG

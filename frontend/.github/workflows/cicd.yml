@@ -1,0 +1,64 @@
+name: Deploy to Nginx on EC2
+
+on:
+  push:
+    branches:
+      - main  # main 브랜치에 푸시될 때마다 배포
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # 최신 Ubuntu 환경에서 실행
+
+    steps:
+    # 1. 리포지토리 코드 체크아웃
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    # 2. Node.js 설정
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'  # 사용할 Node.js 버전 설정
+
+    # 3. 의존성 설치 전에 캐시 삭제
+    - name: Clear npm cache and remove old files
+      run: |
+        rm -rf node_modules package-lock.json
+        npm cache clean --force
+
+    # 4. 의존성 설치
+    - name: Install dependencies
+      run:
+        npm install
+
+    # 5. 네이티브 모듈 재빌드
+    - name: Rebuild native modules
+      run: npm rebuild
+
+    # 6. 프로젝트 빌드
+    - name: Build the project
+      run: npm run build
+
+    # 7. EC2로 배포
+    - name: Deploy to EC2 via SSH
+      env:
+        AWS_EC2_USER: ${{ secrets.AWS_EC2_USER }}  # EC2 사용자 (GitHub Secrets에 저장)
+        AWS_EC2_HOST: ${{ secrets.AWS_EC2_HOST }}  # EC2 서버 IP (GitHub Secrets에 저장)
+        AWS_EC2_KEY: ${{ secrets.AWS_EC2_KEY }}  # EC2 개인 키 (GitHub Secrets에 저장)
+      run: |
+        # 개인 키를 파일로 저장
+        echo "$AWS_EC2_KEY" > private_key.pem
+        chmod 600 private_key.pem  # 키 권한 설정
+
+        # SSH를 통해 EC2 서버에 접속하여 기존 파일 삭제 및 Nginx 재시작
+        ssh -i private_key.pem -o StrictHostKeyChecking=no $AWS_EC2_USER@$AWS_EC2_HOST << EOF
+          sudo rm -rf /var/www/html/*  # 기존 웹 파일 삭제
+        EOF
+
+        # SCP를 통해 dist 폴더의 빌드 파일들을 EC2 서버로 복사
+        scp -i private_key.pem -r ./dist/* $AWS_EC2_USER@$AWS_EC2_HOST:/var/www/html/
+
+        # Nginx 서비스 재시작
+        ssh -i private_key.pem -o StrictHostKeyChecking=no $AWS_EC2_USER@$AWS_EC2_HOST << EOF
+          sudo systemctl restart nginx  # Nginx 재시작
+        EOF
