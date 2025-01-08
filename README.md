@@ -1,6 +1,6 @@
 # AntWork - 그룹웨어 프로젝트
 
-![header](https://capsule-render.vercel.app/api?type=egg&color=gradient&height=250&section=header&text=🖇️AntWork%20Project🖇️&fontSize=70&fontAlign=50)
+![header](https://capsule-render.vercel.app/api?type=egg&color=gradient&height=250&section=header&text=AntWork%20Project&fontSize=70&fontAlign=50)
 
 ## 📖 프로젝트 개요
 AntWork는 롯데 그룹의 사내 협업 플랫폼을 현대화하고, 실무 환경과 유사한 경험을 제공하기 위해 설계된 **풀스택 웹 애플리케이션**입니다.  
