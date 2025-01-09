@@ -15,9 +15,12 @@ AntWork는 롯데 그룹의 사내 협업 플랫폼을 현대화하고, 실무 �
    - 채팅, 파일 공유, 일정 관리.
 3. **확장 가능한 시스템 설계**  
    - 현대적 기술 스택을 활용하여 유연한 구조 구축.
-
 ---
 
+## 🎥 기능 시연
+[시연 영상 바로가기](https://www.youtube.com/watch?v=awnQofAVuoo)
+
+---
 ## 🛠️ 기술 스택
 
 ### **Frontend**
@@ -42,7 +45,7 @@ AntWork는 롯데 그룹의 사내 협업 플랫폼을 현대화하고, 실무 �
 - **GitHub Actions**: CI/CD 파이프라인 자동화.
 - **AWS EC2**: 서버 배포.
 - **Slack**: 팀 커뮤니케이션.
-- **Postman**: API 테스트.
+- **Postman**: API 테스트. 
 - **Notion & Google Sheets**: 작업 관리와 일정 공유.
 
 ---
@@ -142,10 +145,7 @@ AntWork는 롯데 그룹의 사내 협업 플랫폼을 현대화하고, 실무 �
 
 ---
 
-## 🎥 기능 시연
-[시연 영상 바로가기](https://www.youtube.com/watch?v=awnQofAVuoo)
 
----
 
 ## 🤝 질문 및 피드백
 - 황수빈 : ghkdtnqls95@naver.com
