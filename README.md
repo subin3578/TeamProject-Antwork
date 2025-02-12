@@ -30,11 +30,20 @@ AntWork는 롯데 그룹의 사내 협업 플랫폼을 현대화하고, 실무 �
 - 랜딩 페이지 **문의하기 (CS)**
 - 전체 **디자인 기획 및 레이아웃 구현**
 
+ **📄 페이지** </br>
 <img src="https://private-user-images.githubusercontent.com/174754200/412234175-53456f8f-f65a-4478-9b28-69273bfa7213.gif?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzkzMjcwMTksIm5iZiI6MTczOTMyNjcxOSwicGF0aCI6Ii8xNzQ3NTQyMDAvNDEyMjM0MTc1LTUzNDU2ZjhmLWY2NWEtNDQ3OC05YjI4LTY5MjczYmZhNzIxMy5naWY_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMjEyJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDIxMlQwMjE4MzlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0wMDZkNmQ5OWRiYjA0NDE5Y2Q3NmIwN2UzOGI0NzYxNDk1OGMzNjhjYzA2YWE3Y2QxOTIyNzkzZjc3ODA0MjdjJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.sqvD8v_HLKg_9THVE8mQdTdztcABdCL0FOw-T0PHXNg">
 
+ **🙋‍♂️ 문의하기** </br>
+<img src = "https://github.com/user-attachments/assets/cd103be1-2cee-40b7-b1a9-8361fc475d7d">
+
+
+
+## 🎥 기능 시연
+[시연 영상 바로가기](https://www.youtube.com/watch?v=awnQofAVuoo)
+
+---
 
 ## 📝 Trouble Shooting
-
 
 ### 📄 페이지 - 실시간 공유문서
 
@@ -219,7 +228,7 @@ AntWork는 롯데 그룹의 사내 협업 플랫폼을 현대화하고, 실무 �
 <aside>
 💡
 
-상황 : 문의하기 답변을 작성하면 해당 문의자에게 이메일이 가는 서비스 구현, 이메일 처리 로직이 끝날 때 까지 응답 지연
+상황 : 문의하기 답변을 작성하면 해당 문의자에게 이메일이 가는 서비스 구현, 이메일 처리 로직이 끝날 때 까지 사용자에게 응답 지연
 
 문제 : 사용자가 느끼기에 답변한 뒤 2초 뒤  ‘답변이 완료되었습니다’ 가 뜸
 
@@ -262,9 +271,6 @@ public class EmailAspect {
 ```
 
 </aside>
-
-## 🎥 기능 시연
-[시연 영상 바로가기](https://www.youtube.com/watch?v=awnQofAVuoo)
 
 ---
 ## 🛠️ 기술 스택
