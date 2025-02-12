@@ -17,6 +17,8 @@ AntWork는 롯데 그룹의 사내 협업 플랫폼을 현대화하고, 실무 �
    - 현대적 기술 스택을 활용하여 유연한 구조 구축.
 ---
 
+<img src="https://private-user-images.githubusercontent.com/174754200/412234175-53456f8f-f65a-4478-9b28-69273bfa7213.gif?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzkzMjcwMTksIm5iZiI6MTczOTMyNjcxOSwicGF0aCI6Ii8xNzQ3NTQyMDAvNDEyMjM0MTc1LTUzNDU2ZjhmLWY2NWEtNDQ3OC05YjI4LTY5MjczYmZhNzIxMy5naWY_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMjEyJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDIxMlQwMjE4MzlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0wMDZkNmQ5OWRiYjA0NDE5Y2Q3NmIwN2UzOGI0NzYxNDk1OGMzNjhjYzA2YWE3Y2QxOTIyNzkzZjc3ODA0MjdjJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.sqvD8v_HLKg_9THVE8mQdTdztcABdCL0FOw-T0PHXNg">
+
 ## 🎥 기능 시연
 [시연 영상 바로가기](https://www.youtube.com/watch?v=awnQofAVuoo)
 
@@ -79,7 +81,7 @@ AntWork는 롯데 그룹의 사내 협업 플랫폼을 현대화하고, 실무 �
 ### **아키텍처**
 - **프론트엔드와 백엔드 분리**: React 기반 SPA와 RESTful API 연동.
 - **3계층 구조**: Controller, Service, Repository.
-
+![image.png](attachment:988ae4c3-04f8-41bc-a273-7fc3af096a0b:image.png)
 ---
 
 ## 🚀 주요 기능
