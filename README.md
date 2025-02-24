@@ -31,7 +31,7 @@ AntWork는 롯데 그룹의 사내 협업 플랫폼을 현대화하고, 실무 �
 - 전체 **디자인 기획 및 레이아웃 구현**
 
  **📄 페이지** </br>
-<img src="https://private-user-images.githubusercontent.com/174754200/412234175-53456f8f-f65a-4478-9b28-69273bfa7213.gif?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzkzMjcwMTksIm5iZiI6MTczOTMyNjcxOSwicGF0aCI6Ii8xNzQ3NTQyMDAvNDEyMjM0MTc1LTUzNDU2ZjhmLWY2NWEtNDQ3OC05YjI4LTY5MjczYmZhNzIxMy5naWY_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMjEyJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDIxMlQwMjE4MzlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0wMDZkNmQ5OWRiYjA0NDE5Y2Q3NmIwN2UzOGI0NzYxNDk1OGMzNjhjYzA2YWE3Y2QxOTIyNzkzZjc3ODA0MjdjJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.sqvD8v_HLKg_9THVE8mQdTdztcABdCL0FOw-T0PHXNg">
+<img src = "https://github.com/user-attachments/assets/cd103be1-2cee-40b7-b1a9-8361fc475d7d">
 
  **🙋‍♂️ 문의하기** </br>
 <img src = "https://github.com/user-attachments/assets/cd103be1-2cee-40b7-b1a9-8361fc475d7d">
@@ -331,7 +331,7 @@ public class EmailAspect {
 ### **아키텍처**
 - **프론트엔드와 백엔드 분리**: React 기반 SPA와 RESTful API 연동.
 - **3계층 구조**: Controller, Service, Repository.
-<img src="https://file.notion.so/f/f/227a7136-7995-43a3-b8ba-903a1725c3ef/988ae4c3-04f8-41bc-a273-7fc3af096a0b/image.png?table=block&id=198b1a3d-584c-8061-8724-f6010acb0215&spaceId=227a7136-7995-43a3-b8ba-903a1725c3ef&expirationTimestamp=1739354400000&signature=v5IesrjgS7Z9HvxCY1RFWuEUqi_1MeJ8o0XvhHkg01Q&downloadName=image.png">
+
 ---
 
 ## 🚀 주요 기능
@@ -423,4 +423,4 @@ public class EmailAspect {
 ---
 
 ## 🌟 감사합니다!
-AntWork 프로젝트에 관심 가져주셔서 감사합니다. 여러분의 피드백은 저희에게 곧 ㅋ기회가 됩니다.😊
+AntWork 프로젝트에 관심 가져주셔서 감사합니다. 여러분의 피드백은 저희에게 곧 기회가 됩니다.😊
