@@ -17,18 +17,18 @@ AntWork는 롯데 그룹의 사내 협업 플랫폼을 현대화하고, 실무 �
    - 현대적 기술 스택을 활용하여 유연한 구조 구축.
 ---
 
-## 🧑‍💻 담당 기능
+## 👩🏻‍🏫 내가 기여한 부분
 
-- 실시간 공유 문서 **페이지**
+- **페이지**
+    - 실시간 공유 문서 **페이지** (WebSocket Stomp 활용)
+    - **협업자 추가** 및 권한 수정
+    - 협업자에게 **알림 전송**
+- **문의하기**
+    - 문의하기 및 답변하기
+    - 답변 등록 시 이메일 전송
+- **디자인**
+    - 전체 **디자인 기획** 및 레이아웃 구현 (Figma 활용)
 
-   - 페이지 생성 및 실시간 수정
-   - 페이지 삭제 및 복구
-   - 페이지 협업자 추가 및 권한 부여
-   - 페이지 협업자 권한 수정 및 삭제
-   - 페이지 템플릿 생성 및 사용
-
-- 랜딩 페이지 **문의하기 (CS)**
-- 전체 **디자인 기획 및 레이아웃 구현**
 
  **📄 페이지** </br>
 
@@ -37,240 +37,115 @@ AntWork는 롯데 그룹의 사내 협업 플랫폼을 현대화하고, 실무 �
  **🙋‍♂️ 문의하기** </br>
 <img src = "https://github.com/user-attachments/assets/cd103be1-2cee-40b7-b1a9-8361fc475d7d">
 
+ **🙋‍♂️ 전체적인 디자인 기획 (Figma 활용)** </br>
+![image](https://github.com/user-attachments/assets/34930874-5799-4e6c-9a29-b2f480f2f87f)
 
 
 ## 🎥 기능 시연
 [시연 영상 바로가기](https://www.youtube.com/watch?v=awnQofAVuoo)
 
 ---
-
 ## 📝 Trouble Shooting
 
-### 📄 페이지 - 실시간 공유문서
+---
 
+## 📄 페이지
 
-### 1. 실시간 반영 (웹소켓 이용)
+### 실시간 반영 (WebSocket 이용)
 
-- **문제1** : 수정하고 있는 페이지에서도 수정 사항 반영
-    
-    <aside>
-    💡
-    
-    - 상황: 수정하고 있는 페이지에서도 수정사항이 화면에 반영되어 원할한 수정 어려움
-    - 최종 해결방안
-        - 랜덤한 uuid를 생성하여 웹 소켓 메시지를 쏠 때 함께 넣어 함께 보내줌
-        - 방송 받은 uuid 와 현재 페이지의 uuid를 비교하여 같을 땐 화면에 반영하지 않음
-            
-            ⇒ 이 때, uuid 생성 시점때문에 null로 보내지는 문제 발생 : 초기 값 자체를 uuid로 부여하여 해결
-            
-            ```jsx
-            const generateUUID = () => {
-              return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
-                const r = (Math.random() * 16) | 0;
-                const v = c === "x" ? r : (r & 0x3) | 0x8;
-                return v.toString(16);
-              });
-            };  
-            
-            const [componentId] = useState(() => generateUUID());
-            ```
-            
-        
-    
-    </aside>
-    
+### **문제1** : 수정하고 있는 페이지에서도 수정 사항 반영
 
-- **문제2** : 배포 시 속도 저하
-    
-    <aside>
-    💡
-    
-    - 상황 : **onChange**로 변화를 감지하여 웹소켓 방송 & DB 저장 구현 후 배포
-    - 문제 : 배포시 굉장히 느려짐, 너무 잦은 수정으로 인한 성능 저하
-    - 속도 개선을 위한 시도
-        - 웹소켓 방송과 DB 저장 로직 분리하여 일정 주기로 DB 저장 
-        ⇒ 데이터 무결성에 취약해짐
-        - mongo에 저장하는 것을 redis로 저장하고 주기적으로 mongo로 업데이트
-            
-            ⇒ Redis의 저장속도가 더 빨라서 고안해보았으나 ms단위의 차이이기에 인간인 사용자가 느끼기엔 별다른 차이가 없음
-            
-    
-    ### 최종 해결방안 : **Throttle**을 이용하여 수정사항을 모아서 웹소켓 방송 & DB 저장
-    
-    ```jsx
-      const throttledBroadcast = useThrottle(async (savedData) => {
-        console.log("throttledBroadcast - throttle된 브로드캐스트 함수 실행");
-        console.log("🔍 componentId", componentId);
-        if (stompClientRef.current?.active) {
-          const currentId = new URLSearchParams(window.location.search).get("id");
-          const message = {
-            _id: currentId,
-            content: JSON.stringify(savedData),
-            componentId: componentId,
-            uid: uid,
-          };
-    
-          stompClientRef.current.publish({
-            destination: `/app/page/${currentId}`,
-            body: JSON.stringify(message),
-          });
-        }
-      }, 500);
-    ```
-    
-    ```jsx
-    import { useCallback, useRef } from "react";
-    
-    export const useThrottle = (callback, delay = 1000) => {
-      const lastRun = useRef(Date.now());
-      const lastValue = useRef(null);
-      const timeoutRef = useRef(null);
-    
-      return useCallback(
-        (...args) => {
-          const now = Date.now();
-          lastValue.current = args;
-    
-          if (now - lastRun.current >= delay) {
-            // 딜레이 시간이 지났으면 즉시 실행
-            callback(...args);
-            lastRun.current = now;
-    
-            // 이전 예약된 타임아웃이 있다면 제거
-            if (timeoutRef.current) {
-              clearTimeout(timeoutRef.current);
-              timeoutRef.current = null;
-            }
-          } else {
-            // 이전 예약된 타임아웃이 있다면 제거
-            if (timeoutRef.current) {
-              clearTimeout(timeoutRef.current);
-            }
-    
-            // 마지막 변경사항을 위한 새로운 타임아웃 설정
-            timeoutRef.current = setTimeout(() => {
-              callback(...lastValue.current);
-              lastRun.current = Date.now();
-              timeoutRef.current = null;
-            }, delay);
-          }
-        },
-        [callback, delay]
-      );
-    };
-    ```
-    
-    </aside>
-    
-
-### 2. 제목 수정 시 Aside 실시간 반영
-
-- **문제** : 기존의 방송을 이용 ? 새로운 방송 생성
-    
-    <aside>
-    💡
-    
-    상황 : 제목 수정 시 aside에 실시간 반영을 구현해야 함
-    
-    문제 : 기존에 사용하던 방송을 이용한다면, 사용자가 모든 페이지 아이디에 대하여 aside에서 구독을 해야하는 상황 또 내용이 바뀔 때마다 방송이 옴
-    
-    해결 방안 : 제목, 내용 수정 웹소켓 방송을 분리
-               제목 수정 시 aside 채널로 방송 
-               aside 전용 채널만 구독하도록 구현
-    
-    </aside>
-    
-
-### 3.라이브러리 Editor.js css 커스텀 - react
-
-- **문제** : 라이브러리 자체 디폴트 css 수정
-    
-    <aside>
-    💡
-    
-    - 문제사항 : 라이브러리 디폴트 css가 존재, 어떻게 수정하나 ?
-    - 해결 : 검사 도구에서 해당하는 태그의 class명을 알아낸 후 최상단 Scss 파일에 작성
-        
-        ```scss
-        .pageWrite {
-          #editorjs .ce-block__content,
-          #editorjs .ce-toolbar__content,
-          #editorjs .ce-inline-tool,
-          #editorjs .cdx-input,
-          #editorjs .cdx-block,
-          #editorjs .ce-paragraph,
-          #editorjs .ce-list,
-          #editorjs .ce-quote,
-          #editorjs .cdx-marker {
-            font-size: 15px !important;
-            line-height: 1.5; /* 가독성을 위해 추가 설정 */
-          }
-          #editorjs {
-            .ce-toolbar__content {
-              max-width: 1200px !important;
-              width: 100% !important;
-            }
-            .ce-block__content {
-              max-width: 1200px !important;
-              width: 100% !important;
-            }
-          }
-        }
-
-        ...
-        
-    
-    </aside>
-    
-
-## 🙋‍♂️ 문의하기
-
-### Email 처리 로직으로 인한 응답 지연 - 비동기 처리
+### ✅ 해결 : 랜덤한 uuid 생성 후 웹소켓 메시지 전송으로 해결
 
 <aside>
 💡
 
-상황 : 문의하기 답변을 작성하면 해당 문의자에게 이메일이 가는 서비스 구현, 이메일 처리 로직이 끝날 때 까지 사용자에게 응답 지연
+- 최종 해결 방안
+    - 상황: 수정하고 있는 페이지에서도 수정 사항이 화면에 반영되어 원할한 수정 어려움
+    - **랜덤한 uuid(componentId)를 생성**하여 웹 소켓 메시지를 쏠 때 함께 넣어 함께 보내줌
+    - 방송 받은 uuid 와 현재 페이지의 **uuid를 비교**하여 같을 땐 화면에 반영하지 않음
+        
+        ```jsx
+           if (
+                  componentId === data.componentId 
+                ) {
+                  console.log("나의 수정사항엔 반응하지 않음");
+                  return;
+                }
+        ```
+        
+        ⇒ 이 때, uuid 생성 시점때문에 null로 보내지는 문제 발생 : 초기 값 자체를 uuid로 부여하여 해결
+        
+        ```jsx
+        const generateUUID = () => {
+          return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
+            const r = (Math.random() * 16) | 0;
+            const v = c === "x" ? r : (r & 0x3) | 0x8;
+            return v.toString(16);
+          });
+        };  
+        
+        const [componentId] = useState(() => generateUUID());
+        ```
+        
+</aside>
 
-문제 : 사용자가 느끼기에 답변한 뒤 2초 뒤  ‘답변이 완료되었습니다’ 가 뜸
+### **문제2** : 배포 시 속도 저하
+
+### ✅ 해결 : Throttle 을 이용하여 변경사항을 모아 웹소켓 전송
+
+<aside>
+💡
+
+- 상황 : **onChange**로 글자 단위로 변화를 감지하여 웹소켓 방송 & DB 저장 구현 후 배포
+- 문제 : 배포시 굉장히 느려짐, 너무 잦은 수정으로 인한 성능 저하
+- 속도 개선을 위한 방안
+    - 웹소켓 방송과 DB 저장 로직 분리하여 일정 주기로 DB 저장 
+    ⇒ 데이터 무결성에 취약해짐
+    - mongo에 저장하는 것을 redis로 저장하고 주기적으로 mongo로 업데이트
+        
+        ⇒ Redis의 저장속도가 더 빨라서 고안해보았으나 ms단위의 차이이기에 인간인 사용자가 느끼기엔 별다른 차이가 없음
+        
+
+### ✅ 최종 해결 방안 : **Throttle**을 이용하여 입력을 시작한다면, 500ms에 한번씩 변경사항  웹소켓 방송 & DB 저장
+
+```jsx
+  const throttledBroadcast = useThrottle(async (savedData) => {
+    console.log("throttledBroadcast - throttle된 브로드캐스트 함수 실행");
+    console.log("🔍 componentId", componentId);
+    if (stompClientRef.current?.active) {
+      const currentId = new URLSearchParams(window.location.search).get("id");
+      const message = {
+        _id: currentId,
+        content: JSON.stringify(savedData),
+        componentId: componentId,
+        uid: uid,
+      };
+
+      stompClientRef.current.publish({
+        destination: `/app/page/${currentId}`,
+        body: JSON.stringify(message),
+      });
+    }
+  }, 500);
+```
+
+</aside>
+
+## 🙋‍♂️ 문의하기
+
+### Email 처리 로직으로 인한 응답 지연
+
+### ✅ 해결 : AOP를 통해 로직을 분리한 뒤 이메일 전송 비동기 처리
+
+<aside>
+💡
+
+상황 : 답변을 작성하면 문의자에게 이메일을 전송하고 이메일 전송이 끝난 후 ‘답변이 완료되었습니다’ alert창이 뜨는 상황입니다
+
+문제 : 답변한 뒤 약 2초 후  ‘답변이 완료되었습니다’ 가 뜨므로 사용자 경험에 부정적인 영향을 끼칩니다. **이메일 전송 로직** 때문에 **응답이 지연**된 것이 문제!
 
 해결 : AOP를 통해 핵심 로직(답변 작성)과 부가 로직(이메일 전송)을 구분한 뒤 이메일 전송을 **비동기 처리**하여 메인 응답 흐름과 분리했습니다. 이를 통해 사용자는 빠르게 답변 완료 메시지를 확인할 수 있고, 이메일 전송은 별도의 쓰레드에서 처리되어 시스템 성능을 최적화하였습니다.
-
-```java
-@**Aspect**
-@Component
-@RequiredArgsConstructor
-@Log4j2
-public class EmailAspect {
-    private final EmailService emailService;
-
-    **@Async** // 메인스레드가 아닌 별도스레드에서 비동기로 실행
-    @AfterReturning(value = "execution(* BackAnt.service.landing.QnaService.updateAnswer(..))", returning = "response")
-    public void sendEmailAfterUpdate(JoinPoint joinPoint, QnaResponseDTO response) {
-        Object[] args = joinPoint.getArgs();
-        Long id = (Long) args[0];
-        String answer = (String) args[1];
-
-        // Qna 정보 활용
-        log.info("AOP 실행: id={}, answer={}", id, answer);
-
-        // 이메일 전송 로직
-        String targetEmail = response.getEmail(); // QnaResponseDTO에 이메일 필드가 있다고 가정
-        String title = "문의내역에 답변이 작성되었습니다.";
-        String body =
-                "작성하신 문의내역에 답변이 작성되었습니다.\n" +
-                        "확인하시겠습니까 ? \n";
-
-        try {
-            emailService.sendEmailMessage(targetEmail, title, body);
-            log.info("이메일 전송 완료: {}", targetEmail);
-        } catch (Exception e) {
-            log.error("이메일 전송 실패: {}", targetEmail, e);
-
-        }
-    }
-}
-```
 
 </aside>
 
@@ -287,13 +162,13 @@ public class EmailAspect {
 - **Jest**: UI/UX 테스트.
 
 ### **Backend**
-- **Node.js**: 비동기 이벤트 기반 서버.
-- **Express**: RESTful API 설계.
+- **SpringBoot**: 비동기 이벤트 기반 서버.
+- **MySQL**: 관계형 데이터 저장소.
 - **MongoDB**: NoSQL 데이터 저장소.
-- **Mongoose**: 데이터베이스 스키마 설계.
+- **Redis**: 캐싱 및 세션 관리.
+- **Kafka**: 비동기 메시징 및 이벤트 스트리밍.
+- **Stomp**: WebSocket 기반의 실시간 통신.
 - **JWT**: 사용자 인증 및 세션 관리.
-- **Socket.IO**: 실시간 통신 (채팅, 알림).
-- **PM2**: 프로덕션 서버 프로세스 관리.
 
 ### **DevOps & Tools**
 - **GitHub Actions**: CI/CD 파이프라인 자동화.
