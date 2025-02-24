@@ -47,8 +47,6 @@ AntWork는 롯데 그룹의 사내 협업 플랫폼을 현대화하고, 실무 �
 ---
 ## 📝 Trouble Shooting
 
----
-
 ## 📄 페이지
 
 ### 실시간 반영 (WebSocket 이용)
@@ -149,9 +147,10 @@ AntWork는 롯데 그룹의 사내 협업 플랫폼을 현대화하고, 실무 �
 
 </aside>
 
+
 ---
 ## 🛠️ 기술 스택
-
+![image](https://github.com/user-attachments/assets/b8ee4cd8-9e95-43fc-b74f-99e974a7bc48)
 ### **Frontend**
 - **React**: 사용자 인터페이스 개발.
 - **TypeScript**: 코드 안정성과 유지보수성 향상.
@@ -205,9 +204,11 @@ AntWork는 롯데 그룹의 사내 협업 플랫폼을 현대화하고, 실무 �
 
 ## 🏗️ 시스템 설계
 
-### **아키텍처**
+### **시스템 설계도**
 - **프론트엔드와 백엔드 분리**: React 기반 SPA와 RESTful API 연동.
 - **3계층 구조**: Controller, Service, Repository.
+
+  
 
 ---
 
